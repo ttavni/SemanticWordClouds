@@ -313,9 +313,17 @@ d3.csv("data.csv", function(data) {
     .append('g')
     .attr('class', 'path_placeholder')
     .append('path')
+    .attr("class", "encase")
     .attr("id", function(d) { return "path_" + d;})
     .attr('stroke', function(d) { return color(d); })
     .attr('fill', function(d) { return color(d); });
+
+
+    d3.selectAll(".encase").on("click", function(d) {
+
+      d3.select(this).attr("fill", "white");
+
+    });
 
  var texts =  objects.selectAll(".dot")
       .data(data)
@@ -331,40 +339,12 @@ d3.csv("data.csv", function(data) {
 
         var value_ = d.value;
 
-  //     d3.select(this)
-  //       .transition(100)
-  //       .style("font-size", 1992.5  +  (value_ * 0.0055) );
-
   })
- 
 
    simulation
       .nodes(data)
       .on('tick', ticked);
 
-d3.selectAll(".textLabels").on('click', function(d) {
-
-    var idx = d.idx_m;
-    idx = idx.replace('[', '');
-    idx = idx.replace(']', '');
-    idx = idx.replace(/'/g, "")
-    idx = idx.replace(/\s/g, "");
-    var bio = idx.split(',');
-    console.log(bio);
-
-    localStorage.setItem("storageName", bio);
-
-    var titles = d.titles.split(',');
-
-    localStorage.setItem("titles", titles);
-
-    window.open(address + "/" + "selectionPage.html#" );
-
-    //Expose URLs, hyperlinks//
-
-    //Expose URLs, hyperlinks//
-
-});
 
 var target = $(".textLabels");
 var result = target.position().left + target.width();
@@ -393,6 +373,7 @@ var result = target.position().left + target.width();
   function ticked() {
     
     updateGroups();
+
   }
 
   // select nodes of the group, retrieve its positions
@@ -408,9 +389,14 @@ var polygonGenerator = function(groupId) {
 };
 function updateGroups() {
   groupIds.forEach(function(groupId) {
+
+    if (groupId != -1) {
+
     var path = paths.filter(function(d) { return d == parseInt(groupId);})
       .attr('transform', 'scale(1) translate(0,0)')
       .attr('d', function(d) {
+
+
         polygon = polygonGenerator(d);          
         centroid = d3.polygonCentroid(polygon);
         // to scale the shape properly around its points:
@@ -424,6 +410,9 @@ function updateGroups() {
         );
       });
     d3.select(path.node().parentNode).attr('transform', 'translate('  + x(centroid[0]) + ',' + y(centroid[1]) + ') scale(' + scaleFactor + ')');
+  } else {
+
+  }
   });
 }
 
