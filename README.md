@@ -31,7 +31,7 @@ createViz(df,folder=folder)
 
 ```
 
-[Interactive Version](http://bl.ocks.org/tavni96/68d6ee63385d1a5a22a595efb3440378/6530e477ce5a979db1e32435b7ead1ffb5d66401) (scroll out a little bit)
+[Interactive Version](http://bl.ocks.org/tavni96/raw/68d6ee63385d1a5a22a595efb3440378/6530e477ce5a979db1e32435b7ead1ffb5d66401/) (scroll out a little bit)
 
 
 !['viz'](https://i.imgur.com/nr2pgc3.png)
