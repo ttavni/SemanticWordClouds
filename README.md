@@ -26,7 +26,12 @@ df = df[np.abs(df.Y - df.Y.mean()) <= (2 * df.Y.std())]
 # Create Visualisation
 createViz(df,folder=folder)
 
+
 ```
+
+[Interactive Version](http://bl.ocks.org/tavni96/raw/68d6ee63385d1a5a22a595efb3440378/) (scroll out a little bit)
+
+
 !['viz'](https://i.imgur.com/nr2pgc3.png)
 
 
