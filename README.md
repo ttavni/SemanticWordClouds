@@ -1,6 +1,6 @@
 # Semantic Word Cloud
 
-######Made by Peter Simkin (Psimkin)
+######Made by Peter Simkin (Psimkin) & Tim Avni (tavni96)
 
 Using keyword extraction (PKE) and pre-trained word embeddings to create a semantic word cloud
 
